@@ -17,16 +17,16 @@ public class LionTest {
     Feline feline;
 
     @Test
-    public void getKittensTest() {
+    public void getKittensTest() throws Exception {
         Mockito.when(feline.getKittens()).thenReturn(2);
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самка",feline);
         assertEquals(2, lion.getKittens());
     }
 
     @Test
     public void getFoodTest() throws Exception {
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самец",feline);
         assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 }
